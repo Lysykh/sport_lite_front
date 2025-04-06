@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перемещаемый квадрат</title>
+    <style>
+        #draggable-square {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            cursor: move;
+            user-select: none; /* Запрещаем выделение текста при перетаскивании */
+        }
+    </style>
+</head>
+<body>
+    <div id="draggable-square"></div>
+
+    <script>
+        const square = document.getElementById('draggable-square');
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        // Начало перетаскивания
+        square.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            
+            // Вычисляем смещение курсора относительно угла квадрата
+            offsetX = e.clientX - square.getBoundingClientRect().left;
+            offsetY = e.clientY - square.getBoundingClientRect().top;
+            
+            // Изменяем стиль при перетаскивании
+            square.style.opacity = '0.7';
+            square.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
+        });
+
+        // Перемещение
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            // Устанавливаем новую позицию квадрата
+            square.style.left = (e.clientX - offsetX) + 'px';
+            square.style.top = (e.clientY - offsetY) + 'px';
+        });
+
+        // Конец перетаскивания
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            
+            // Возвращаем обычный стиль
+            square.style.opacity = '1';
+            square.style.boxShadow = 'none';
+        });
+
+        // Начальная позиция квадрата
+        square.style.left = '350px';
+        square.style.top = '50px';
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+
+    <title>ЗАМЕНА</title>
+</head>
+<body>
+
+    <p>херня</p>
+    <p>привет</p>
+    <p>вот те раз</p>
+    
+
+    <script>
+
+        var zamenavar = document.querySelectorAll("p");
+        for (var i = 0; i < zamenavar.length; i++) {
+            zamenavar[i].addEventListener("click", function(event) {
+                this.textContent = "Новый текст";
+            });
+        }
+
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 
-sravnenie = "111"; // Константа для сравнения
+const sravnenie = "111"; // Константа для сравнения
 
 document.getElementById("forma1").addEventListener("submit", function(event) 
 

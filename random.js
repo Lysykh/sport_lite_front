@@ -1,8 +1,11 @@
 
 let random = Math.floor(Math.random() * 100) + 1;
 let count = 1;
+let forma = document.getElementById("forma1")
 
-document.getElementById("forma1").addEventListener("submit", function(event) 
+forma.addEventListener("submit", function(event) 
+
+ 
 
 {event.preventDefault(); formData = new FormData(this);
 name_from_form = formData.get("data");
@@ -26,9 +29,22 @@ if (name_from_form > 100)
 }
 );
 
+function dontClick(event){
+    alert("не кликай")
+}
 
+let vardiv = document.querySelector(".main")
+vardiv.addEventListener("click", dontClick)
 
+ 
+// function dontClick(event) {
+//     alert("Не кликай!");
+//     event.stopPropagation(); // Предотвращаем всплытие события
+// }
 
+// // Вариант 1: Если у вас только один элемент с классом "main"
+// let mainDiv = document.querySelector(".main"); // Получаем первый элемент с классом
+// mainDiv.addEventListener("click", dontClick);
 
     
     

@@ -1,0 +1,24 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Удаляловоу</title>
+</head>
+<body>
+ 
+    <p>удаляйся.</p>
+    <p>исчезни</p>
+    <p>пропади</p>
+    
+
+    <script>
+
+        var deletevar = document.querySelectorAll("p");
+        for (var i = 0; i < deletevar.length; i++) {
+            deletevar[i].addEventListener("click", function(event) {
+                this.remove(); 
+            });
+        }
+
+    </script>
+</body>
+</html>
